@@ -35,3 +35,13 @@ function show_all(){
         document.getElementById("result").style.display="none";
     }
 }
+function persist(event) {
+    localStorage.setItem(event.target.id, event.target.value);
+  }
+ 
+  
+  // you may use a more specific selector;
+  document.querySelectorAll("textarea").forEach((inputEl) => {
+    inputEl.value = localStorage.getItem(inputEl.id);
+    inputEl.addEventListener("change", persist);
+  });
